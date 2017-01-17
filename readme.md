@@ -1,9 +1,9 @@
 #Dulcimer
 A micro web server in ruby.
 
-##Run webserver in bash on port 9999 terminal:
+###To Run(port 9999):
     ruby dulcimer.rb
     
-##To Stop
+###To Stop
     ctrl+c
     
