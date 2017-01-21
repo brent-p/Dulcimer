@@ -12,7 +12,6 @@ class HttpRequest
   end
 
   def parse(request_str)
-    puts "parse"
     request = request_str.split(" ")
     @action = request[0]
     @path = clean_path(request[1])
@@ -20,11 +19,9 @@ class HttpRequest
     @type = File.extname(@path).gsub(".", "")
   end
 
-  def clean_path(request_uri)
-    puts "clean_path"
+  def clean_path(request_uri)    
     path = URI.unescape(URI(request_uri).path)
 
-    puts "unclean #{path}"
     #From http://practicingruby.com/articles/implementing-an-http-file-server
     #Stop server from serving files from outside the www folder
     clean = []
@@ -41,7 +38,6 @@ class HttpRequest
       part == '..' ? clean.pop : clean << part
     end
 
-    puts "Clean path: #{clean}"
     return clean.join("")
   end
   
